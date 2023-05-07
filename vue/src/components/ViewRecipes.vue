@@ -26,7 +26,7 @@
         },
         methods: {
             retrieveRecipes() {
-                recipeService.findAllByUserId(this.$store.state.user.userId).then((response) => {
+                recipeService.findAllByUserId(this.$store.state.user.id).then((response) => {
                     this.$store.commit("SET_RECIPE_INFO", response.data);
                     
                 });
