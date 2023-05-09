@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    <login-banner></login-banner>
     <div id="login">
       <form @submit.prevent="login">
         <h1>Please Sign In</h1>
@@ -30,10 +29,9 @@
 
 <script>
 import authService from "../services/AuthService";
-import LoginBanner from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/components/LoginBanner.vue"
 export default {
   name: "login",
-  components: {}, LoginBanner,
+  components: {},
   data() {
     return {
       user: {
