@@ -20,6 +20,7 @@
           <p class="register-user">
             <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link>
           </p>
+
         </a>
       </form>
     </div>
@@ -72,7 +73,7 @@ export default {
 label {
   margin-right: 0.5rem;
   padding-top: 40px;
-  color: #8C55AA;
+  color: #E4A193;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;
@@ -81,7 +82,7 @@ label {
 h1 {
   text-align: center;
   padding-top: 40px;
-  color: #8C55AA;
+  color: #E4A193;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;
@@ -122,10 +123,9 @@ h1 {
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.02);
-  margin-bottom: 50px;
+  margin-bottom: 5px;
   margin-left: 46px;
   text-align: center;
-  margin-bottom: 27px;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -163,7 +163,7 @@ button {
   cursor: pointer;
   border-radius: 5em;
   color: #fff;
-  background: linear-gradient(to right, #9C27B0, #E040FB);
+  background: linear-gradient(to right, #E4A193, #E4A193);
   border: 0;
   padding-left: 40px;
   padding-right: 40px;
