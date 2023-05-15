@@ -1,13 +1,15 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
-    <p><router-link :to="{ name: 'recipes'}">My Recipes</router-link></p>
+    <home></home>
   </div>
 </template>
 
 <script>
+import Home from '/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/components/Home.vue'
 export default {
-  name: "home"
+  name: "home-view",
+  components: {
+    Home
+  }
 };
 </script>
