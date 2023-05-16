@@ -1,5 +1,6 @@
 <template>
         <div class = "nav">
+                <router-link :to="{ name: 'home'}"> Home </router-link>
                 <router-link :to="{ name: 'recipes'}">My Recipes</router-link>
                 <router-link :to="{ name: 'random-recipe-generator'}">Discover Something New</router-link>
                 <router-link :to="{ name: 'community'}"> Community </router-link>
