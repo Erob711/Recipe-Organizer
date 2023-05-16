@@ -18,7 +18,7 @@
         <button type="submit">Sign in</button>
         <a>
           <p class="register-user">
-            <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link>
+            <router-link class = "need-account" :to="{ name: 'register' }">Need an account?</router-link>
           </p>
 
         </a>
@@ -122,7 +122,6 @@ h1 {
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.02);
-  margin-bottom: 5px;
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
 }
@@ -150,9 +149,8 @@ label {
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.02);
-  margin-bottom: 50px;
+  margin-bottom: 5%;
   text-align: center;
-  margin-bottom: 27px;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -169,5 +167,10 @@ button {
   font-family: 'Ubuntu', sans-serif;
   font-size: 13px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.need-account {
+  text-decoration: none;
+  color: #AA6B84;
 }
 </style>
