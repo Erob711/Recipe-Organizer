@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav">
       <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp; -->
       <the-header class = "the-header"></the-header>
-    </div>
-    <router-view />
+      <router-view/>
+      <!-- <div class = "nav">
+                <router-link :to="{ name: 'recipes'}">My Recipes</router-link>
+                <router-link :to="{ name: 'random-recipe-generator'}">Discover Something New</router-link>
+                <router-link :to="{ name: 'community'}"> Community </router-link>
+                <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+        </div> -->
     <the-footer class = "the-footer"></the-footer>
   </div>
 </template>
@@ -20,7 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;

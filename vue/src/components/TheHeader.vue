@@ -1,32 +1,27 @@
 <template>
-    <div>
         <div class = "nav">
-            <ul class = "header-options">
-                <li><router-link :to="{ name: 'recipes'}">My Recipes</router-link></li>
-                <li><router-link :to="{ name: 'random-recipe-generator'}">Discover Something New</router-link></li>
-                <li><router-link :to="{ name: 'community'}"> Community </router-link></li>
-                <li><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
-            </ul>
+                <router-link :to="{ name: 'recipes'}">My Recipes</router-link>
+                <router-link :to="{ name: 'random-recipe-generator'}">Discover Something New</router-link>
+                <router-link :to="{ name: 'community'}"> Community </router-link>
+                <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
         </div>
-    </div>
 </template>
 
 
 <script>
 </script>
 
-<style>
+<style scoped>
 .nav {
-    background-color: black;
+    display: flex;
+    background-color: goldenrod;
     overflow: hidden;
-    justify-content: center;
     margin-left: 0;
     margin-right: 0;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    
 }
-.ul {
-   
-}
+
 
 </style>
 
