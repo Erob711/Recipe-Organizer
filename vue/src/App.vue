@@ -51,8 +51,9 @@ export default {
   height: 2.5rem;
 }
 .the-footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   align-items: center;
   height: 2.5rem;
