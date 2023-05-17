@@ -42,4 +42,23 @@
 </script>
 
 <style>
+.recipe-card {
+  position: relative;
+  margin: 10px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 500ms ease;
+  background-color: #E25233;
+  z-index: 2;
+  font-weight: bold;
+  flex-basis: calc(50% - 20px);
+  width: calc(50% - 10px);
+}
 </style>
