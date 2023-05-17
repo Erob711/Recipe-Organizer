@@ -1,7 +1,6 @@
 <template>
         <div class = "nav">
                 <router-link class = "header-option" :to="{ name: 'home'}">My Recipes</router-link>
-                <router-link class = "header-option" :to="{ name: 'random-recipe-generator'}">Discover Something New</router-link>
                 <router-link class = "header-option" :to="{ name: 'community'}"> Community </router-link>
                 <router-link class = "header-option" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
         </div>
