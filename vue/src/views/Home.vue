@@ -8,7 +8,7 @@
 <script>
 
 import ViewRecipes from '/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/components/ViewRecipes.vue'
-import HamburgerMenu from '/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/components/Menu.vue'
+import HamburgerMenu from '/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/components/HamburgerMenu.vue'
 export default {
   name: "home-view",
   components: {

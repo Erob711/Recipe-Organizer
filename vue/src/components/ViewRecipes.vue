@@ -18,6 +18,7 @@
 
         data() {
             return {
+                
 
             };
         },
@@ -30,7 +31,8 @@
                     this.$store.commit("SET_RECIPE_INFO", response.data);
                     
                 });
-            }
+            },
+            
         },
         computed: {
             recipes() {
