@@ -1,8 +1,8 @@
 <template>
         <div class = "nav">
-                <router-link class = "header-option" :to="{ name: 'home'}">My Recipes</router-link>
-                <router-link class = "header-option" :to="{ name: 'community'}"> Community </router-link>
-                <router-link class = "header-option" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+                <router-link class = "header-option" :to="{ name: ''}">What's New</router-link>
+                <router-link class = "header-option" :to="{ name: ''}"> Community </router-link>
+                <router-link class = "header-option" v-bind:to="{ name: 'l' }" v-if="$store.state.token != ''">Blog</router-link>
         </div>
 </template>
 
@@ -18,6 +18,7 @@
     margin-left: 0;
     margin-right: 0;
     justify-content: space-evenly;
+    height: 5%;
     
 }
 .header-option{

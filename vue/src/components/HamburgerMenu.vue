@@ -3,9 +3,10 @@
 
         <input type="checkbox" name="" id="" class="check">
         <ul class="menu-items">
-            <li><a href="https://google.com" target="_blank">Create</a></li>
-            <li><a href="https://google.com" target="_blank">Discover</a></li>
-            <li><a href="https://google.com" target="_blank">Plan</a></li>
+            <li><router-link class = "header-option" :to="{ name: 'home'}">Recipes</router-link></li>
+            <li><router-link class = "header-option" :to="{ name: 'community'}"> Discover </router-link></li>
+            <li><router-link class = "header-option" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
+            
         </ul>
         <div class="ham-menu">
             <span class="line line1"></span>

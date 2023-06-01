@@ -22,6 +22,7 @@ export default {
 .recipes {
   display: flex;
   flex-direction: column;
-  margin-top: 8%;
+  margin-top: 0%;
 }
+
 </style>
