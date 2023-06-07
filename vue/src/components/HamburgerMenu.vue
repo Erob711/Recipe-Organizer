@@ -1,12 +1,13 @@
 <template>
     <div class="container">
 
-        <input type="checkbox" name="" id="" class="check">
-        <ul class="menu-items">
-            <li><router-link class = "header-option" :to="{ name: 'home'}">Recipes</router-link></li>
-            <li><router-link class = "header-option" :to="{ name: 'community'}"> Discover </router-link></li>
-            <li><router-link class = "header-option" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
-            
+        <input type="checkbox" name="" id="" class="check" v-on:click="setLinks()">
+        <ul class="menu-items" v-if="showLinks === true">
+            <li><router-link class="header-option" :to="{ name: 'home' }">Recipes</router-link></li>
+            <li><router-link class="header-option" :to="{ name: 'community' }"> Discover </router-link></li>
+            <li><router-link class="header-option" v-bind:to="{ name: 'logout' }"
+                    v-if="$store.state.token != ''">Logout</router-link></li>
+
         </ul>
         <div class="ham-menu">
             <span class="line line1"></span>
@@ -15,6 +16,30 @@
         </div>
     </div>
 </template>
+
+<script>
+
+export default {
+    name: "hamburger-menu",
+    data() {
+        return {
+            showLinks: false
+
+        };
+    },
+    methods: {
+        setLinks() {
+            if (this.showLinks === false) {
+                this.showLinks = true;
+            } else {
+                this.showLinks = false;
+            }
+        }
+    }
+
+
+}
+</script>
 
 <style scoped>
 *,
@@ -59,17 +84,17 @@
     transition: transform 100ms ease-in-out, opacity 200ms;
 }
 
-.menu-items li{
+.menu-items li {
     color: white;
     padding: 0.5rem;
 }
 
-.menu-items li a{
+.menu-items li a {
     color: white;
     text-decoration: none;
 }
 
-.menu-items li a:hover{
+.menu-items li a:hover {
     color: rgb(174, 174, 174);
 }
 
