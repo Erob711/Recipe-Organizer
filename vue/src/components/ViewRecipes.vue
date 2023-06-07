@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-    <div class = "filter-container">
+    <!-- <div class = "filter-container">
         <p>Breakfast</p>
         <p>Lunch</p>
         <p>Dinner</p>
@@ -9,9 +9,18 @@
         <p>Cost-Effective</p>
     
         
+    </div> -->
+    <div class="btn-container fade-out" id="btn-container">
+      <button @click="selectCategory(null)">All Recipes</button>
+      <button @click="selectCategory('Breakfast')">Breakfast</button>
+      <button @click="selectCategory('Lunch')">Lunch</button>
+      <button @click="selectCategory('Dinner')">Dinner</button>
+      <button @click="selectCategory('Healthy')">Healthy</button>
+      <button @click="selectCategory('Simple')">Simple</button>
+      <button @click="selectCategory('Cost Effective')">Cost Effective</button>
     </div>
     <div class="recipe-container">
-        <div v-for="recipe in recipes" :key="recipe.recipeId" class="recipe-card">
+        <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card">
             <p> {{ recipe.title }}</p>
             <p> {{ recipe.category }}</p>
         </div>
@@ -27,7 +36,7 @@
 
         data() {
             return {
-                
+                selectedCategory: null
 
             };
         },
@@ -41,13 +50,18 @@
                     
                 });
             },
-            
+            selectCategory(category) {
+                 this.selectedCategory = category;
+            },
         },
         computed: {
-            recipes() {
+            filteredRecipes() {
+                if (!this.selectedCategory) {
                 return this.$store.state.recipes;
+                }
+                return this.$store.state.recipes.filter((recipe) => recipe.category === this.selectedCategory);
             },
-            //TODO: filter method//filter by recipe category
+            
         }
     }
 </script>
