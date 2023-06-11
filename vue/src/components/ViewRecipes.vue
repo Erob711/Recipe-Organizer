@@ -97,6 +97,7 @@ export default {
     top: 100px;
 }
 .btn-container {
+    display: grid;
     position: relative;
     margin: 1rem;
     padding: 1rem;
