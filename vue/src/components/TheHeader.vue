@@ -19,7 +19,7 @@
     margin-right: 0;
     justify-content: space-evenly;
     height: 5%;
-    
+    z-index: 7;
 }
 .header-option{
     color: white;

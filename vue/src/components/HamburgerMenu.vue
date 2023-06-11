@@ -99,7 +99,7 @@ export default {
 }
 
 .check {
-    position: absolute;
+    position: fixed;
     top: 0rem;
     left: 0rem;
     height: 3rem;

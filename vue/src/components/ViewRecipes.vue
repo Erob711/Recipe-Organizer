@@ -99,18 +99,24 @@ export default {
 .btn-container {
     display: grid;
     position: relative;
-    margin: 1rem;
-    padding: 1rem;
     text-align: center;
     width: 150px;
     height: 100vh;
-    background-color: aquamarine;
-    margin-left: 0px;
+    margin-left: -10px;
     margin-right: 0px;
+    overflow: hidden;
 }
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    left: 0rem;
+}
+button {
+    color: blue;
+    background-color: white;
+    z-index: 0;
+    top: 0rem;
+    left: 0rem;
 }
 
 </style>

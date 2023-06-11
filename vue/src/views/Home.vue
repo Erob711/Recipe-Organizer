@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <hamburger-menu></hamburger-menu>
+    <hamburger-menu class ="hamburger-menu"></hamburger-menu>
     <view-recipes class ="recipes"></view-recipes>
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
 
 <style>
 .recipes {
+  margin-left: 0px;
   width: 1000px;
   height: 100vh;
 }
@@ -28,5 +29,9 @@ export default {
   display: grid;
   grid-template-columns: 0px 1fr 2fr;
   height: 100vh;
+  
+}
+.hamburger-menu {
+  position: fixed;
 }
 </style>
