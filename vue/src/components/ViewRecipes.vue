@@ -9,6 +9,7 @@
         <button @click="selectCategory('Simple')">Simple</button>
         <button @click="selectCategory('Cost Effective')">Cost Effective</button>
         </div>
+    
         <div class="recipe-container">
             <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card">
                 <p> {{ recipe.title }}</p>
@@ -97,7 +98,9 @@ export default {
     top: 100px;
 }
 .btn-container {
-    display: grid;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
     position: relative;
     text-align: center;
     width: 150px;
@@ -105,18 +108,23 @@ export default {
     margin-left: -10px;
     margin-right: 0px;
     overflow: hidden;
+    justify-content: space-evenly;
 }
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     left: 0rem;
 }
 button {
-    color: blue;
-    background-color: white;
+    background-color: #DDE8A9;
     z-index: 0;
     top: 0rem;
     left: 0rem;
+    height: 30px;
+    border-color: #DDE8A9;
+    border-bottom: #e8b4a9;
+    border-top: #DDE8A9;
+    text-align: right;
 }
 
 </style>
