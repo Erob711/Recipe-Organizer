@@ -1,15 +1,14 @@
 <template>
     <div class="container">
-        <!-- <div class = "filter-container">
-        <p>Breakfast</p>
-        <p>Lunch</p>
-        <p>Dinner</p>
-        <p>Healthy</p>
-        <p>Simple</p>
-        <p>Cost-Effective</p>
-    
-        
-    </div> -->
+        <div class="btn-container">
+        <button @click="selectCategory(null)">All Recipes</button>
+        <button @click="selectCategory('Breakfast')">Breakfast</button>
+        <button @click="selectCategory('Lunch')">Lunch</button>
+        <button @click="selectCategory('Dinner')">Dinner</button>
+        <button @click="selectCategory('Healthy')">Healthy</button>
+        <button @click="selectCategory('Simple')">Simple</button>
+        <button @click="selectCategory('Cost Effective')">Cost Effective</button>
+        </div>
         <div class="recipe-container">
             <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card">
                 <p> {{ recipe.title }}</p>
@@ -84,22 +83,6 @@ export default {
     width: calc(50% - 10px);
 }
 
-.filter-container {
-    display: flex;
-    background-color: white;
-    overflow: hidden;
-    margin-left: 0;
-    margin-right: 0;
-    justify-content: space-evenly;
-    height: 100%;
-    width: 200px;
-    background-color: #3498db;
-    position: relative;
-    left: 0px;
-    top: 0px;
-
-}
-
 .recipe-container {
     display: flex;
     background-color: whitesmoke;
@@ -112,7 +95,21 @@ export default {
     position: relative;
     left: 0%;
     top: 100px;
-
+}
+.btn-container {
+    position: relative;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 150px;
+    height: 100vh;
+    background-color: aquamarine;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 </style>
