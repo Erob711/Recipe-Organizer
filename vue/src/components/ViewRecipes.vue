@@ -73,7 +73,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 300px;
+    max-width: 200px;
     backdrop-filter: blur(10px);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: transform 500ms ease;
@@ -88,11 +88,11 @@ export default {
     display: flex;
     background-color: whitesmoke;
     overflow: hidden;
-    margin-left: 0;
+    margin-left: 10%;
     margin-right: 0;
     justify-content: space-evenly;
     height: 20%;
-    width: 70%;
+    width: 1500px;
     position: relative;
     left: 0%;
     top: 100px;

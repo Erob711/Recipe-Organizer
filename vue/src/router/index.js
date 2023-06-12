@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import TESTHoverCards from '..views/TESTHoverCards.vue'
 Vue.use(Router)
 
 /**
@@ -48,6 +49,14 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/hover",
+      name: "hover",
+      component: TESTHoverCards,
       meta: {
         requiresAuth: false
       }
