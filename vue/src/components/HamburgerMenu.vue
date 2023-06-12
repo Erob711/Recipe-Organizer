@@ -52,13 +52,14 @@ export default {
 
 
 .container {
-    position: relative;
+    position: fixed;
     margin: 1rem;
     padding: 1rem;
     height: 2%;
     text-align: center;
     width: 20px;
     margin-left: 0px;
+    z-index: 10;
 }
 
 .container h1 {
