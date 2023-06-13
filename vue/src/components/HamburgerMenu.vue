@@ -101,10 +101,10 @@ export default {
 
 .check {
     position: fixed;
-    top: 0rem;
-    left: 0rem;
-    height: 3rem;
-    width: 3rem;
+    top: 1.7rem;
+    left: .7rem;
+    height: 2.8rem;
+    width: 2.8rem;
     opacity: 0;
     z-index: 9;
 }
