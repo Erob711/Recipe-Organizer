@@ -14,6 +14,9 @@
             <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card">
                 <p> {{ recipe.title }}</p>
                 <p> {{ recipe.category }}</p>
+                <button class="go-to">
+                    <router-link :to="{ name: 'view-card', params: { title: title, category: category}}">Go To</router-link>
+                </button>
             </div>
         </div>
 
