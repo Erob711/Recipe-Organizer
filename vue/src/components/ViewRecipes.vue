@@ -1,13 +1,13 @@
 <template>
     <div class="container">
         <div class="btn-container">
-        <button @click="selectCategory(null)">All Recipes</button>
-        <button @click="selectCategory('Breakfast')">Breakfast</button>
-        <button @click="selectCategory('Lunch')">Lunch</button>
-        <button @click="selectCategory('Dinner')">Dinner</button>
-        <button @click="selectCategory('Healthy')">Healthy</button>
-        <button @click="selectCategory('Simple')">Simple</button>
-        <button @click="selectCategory('Cost Effective')">Cost Effective</button>
+        <button class = "filter-btn" @click="selectCategory(null)">All Recipes</button>
+        <button class = "filter-btn" @click="selectCategory('Breakfast')">Breakfast</button>
+        <button class = "filter-btn" @click="selectCategory('Lunch')">Lunch</button>
+        <button class = "filter-btn" @click="selectCategory('Dinner')">Dinner</button>
+        <button class = "filter-btn" @click="selectCategory('Healthy')">Healthy</button>
+        <button class = "filter-btn" @click="selectCategory('Simple')">Simple</button>
+        <button class = "filter-btn" @click="selectCategory('Cost Effective')">Cost Effective</button>
         </div>
     
         <div class="recipe-container">
@@ -115,7 +115,7 @@ export default {
     grid-template-columns: 1fr 2fr;
     left: 0rem;
 }
-button {
+.filter-btn {
     background-color: #DDE8A9;
     z-index: 0;
     top: 0rem;
@@ -125,6 +125,14 @@ button {
     border-bottom: #e8b4a9;
     border-top: #DDE8A9;
     text-align: right;
+}
+.filter-btn:hover {
+    background-color: #e8b4a9;
+    transition: 0.6s;
+}
+
+.filter-btn:active {
+    background-color: #64382F;
 }
 
 </style>
