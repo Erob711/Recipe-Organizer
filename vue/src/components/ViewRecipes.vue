@@ -15,7 +15,7 @@
                 <p> {{ recipe.title }}</p>
                 <p> {{ recipe.category }}</p>
                 <button class="go-to">
-                    <router-link :to="{ name: 'view-card', params: { title: title, category: category}}">Go To</router-link>
+                    <router-link :to="{ name: 'view-card', params: { recipeId: recipe.recipeId}}">Go To</router-link>
                 </button>
             </div>
         </div>

@@ -1,7 +1,6 @@
 <template>
 <div>
-    <p>Hellooo I'm working</p>
-    <view-card></view-card>
+    <view-card v-bind:recipeId="parseInt($route.params.recipeId)"></view-card>
 </div>
 </template>
 
