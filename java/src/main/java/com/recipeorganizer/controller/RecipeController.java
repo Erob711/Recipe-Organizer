@@ -24,4 +24,12 @@ public class RecipeController {
         List<Recipe> recipes = recipeDAO.findAllByUserId(userId);
         return recipes;
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path="/{recipeId}", method = RequestMethod.GET)
+    public Recipe getRecipeById(@PathVariable("recipeId") int recipeId) {
+        Recipe recipe;
+        recipe = recipeDAO.getRecipeById(recipeId);
+        return recipe;
+    }
 }

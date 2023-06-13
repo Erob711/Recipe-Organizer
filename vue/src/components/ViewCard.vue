@@ -4,14 +4,14 @@
     I am the view-card component!
     <div>
         <p>{{ this.recipeId }}</p>
-        <!-- need to get from Database -->
-        <!-- {{ this.recipe.title }}
-        {{ this.recipe.category }} -->
+        {{ this.recipe.title }}
+        {{ this.recipe.category }}
     </div>
     </div>
 </template>
 
 <script>
+import recipeService from "../services/RecipeService.js"
 export default {
     name: 'view-recipe-card',
     props: ["recipeId"],
@@ -29,7 +29,16 @@ export default {
     },
     created() {
         //Needs to call getRecipeById(recipeId)
-
+        recipeService.getRecipeById(this.recipeId)
+        .then((response) => {
+            this.$store.commit("SET_ACTIVE_RECIPE", response.data);
+            this.recipe = response.data;
+        })
+        .catch((error) => {
+        if (error.response.status == 404) {
+          this.$router.push({ name: "NotFound" });
+        }
+      });
     }
 }
 </script>

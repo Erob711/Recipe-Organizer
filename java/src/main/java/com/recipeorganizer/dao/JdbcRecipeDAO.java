@@ -35,7 +35,15 @@ public class JdbcRecipeDAO implements RecipeDAO{
 
     @Override
     public Recipe getRecipeById(int recipeId) {
-        return null;
+        Recipe recipe = new Recipe();
+        String sql = "SELECT *\n" +
+                "\tFROM public.recipes\n" +
+                "\tWHERE recipe_id = ?;";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, recipeId);
+        if (result.next()) {
+            recipe = mapRowToRecipe(result);
+        }
+        return recipe;
     }
 
     @Override
