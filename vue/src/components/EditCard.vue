@@ -51,16 +51,16 @@ export default ({
             .then((response) => {
                 if (response.status == 200) {
                     this.$router.push({
-                        name: "home-view"
+                        name: "home"
                     });
                 } else {
                     console.log("Errorrrrr!");
                 }
             }) .catch((error) => {
-          const response = error.response;
-          this.registrationErrors = true;
-          if (response.status === 400) {
-            this.registrationErrorMsg = "Bad Request: Validation Errors";
+                const response = error.response;
+                this.registrationErrors = true;
+            if (response.status === 400) {
+                this.registrationErrorMsg = "Bad Request: Validation Errors";
           }
         });
         }
