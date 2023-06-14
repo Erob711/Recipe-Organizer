@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import ViewCard from '../views/ViewCard'
+import EditRecipePage from '../views/EditRecipePage'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ const router = new Router({
       path: 'view-card',
       name: 'view-card',
       component: ViewCard
+    },
+    {
+      path: '/edit-recipe-page',
+      name: 'edit-recipe-page',
+      component: EditRecipePage
     }
   ]
 })

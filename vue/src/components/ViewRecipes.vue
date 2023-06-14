@@ -94,7 +94,7 @@ export default {
     margin-left: 10%;
     margin-right: 0;
     justify-content: space-evenly;
-    height: 20%;
+    height: 30%;
     width: 1500px;
     position: relative;
     left: 0%;

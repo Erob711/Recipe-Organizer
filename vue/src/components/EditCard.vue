@@ -1,20 +1,15 @@
 <template>
-    <div>
-    <p></p>
-    I am the view-card component!
-    <div>
+    <div class = "container">
         <p>{{ this.recipeId }}</p>
         {{ this.recipe.title }}
         {{ this.recipe.category }}
-        <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
-    </div>
     </div>
 </template>
 
 <script>
 import recipeService from "../services/RecipeService.js"
-export default {
-    name: 'view-recipe-card',
+export default ({
+    name: "edit-card",
     props: ["recipeId"],
     data() {
         return {
@@ -39,7 +34,8 @@ export default {
         }
       });
     }
-}
+});
+
 </script>
 
 <style>
