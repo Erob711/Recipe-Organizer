@@ -34,9 +34,9 @@ public class RecipeController {
         return recipe;
     }
 
-    @RequestMapping(path = "/{recipeId}", method = RequestMethod.PUT)
-    public Recipe updateRecipe(@RequestBody Recipe recipe, @PathVariable int recipeId) {
-        Recipe updatedRecipe = recipeDAO.updateRecipe(recipe, recipeId);
+    @RequestMapping(path = "/update", method = RequestMethod.PUT)
+    public Recipe updateRecipe(@RequestBody Recipe recipe) {
+        Recipe updatedRecipe = recipeDAO.updateRecipe(recipe);
         if (updatedRecipe == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist");
         } else {
