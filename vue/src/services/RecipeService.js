@@ -8,8 +8,8 @@ export default {
   getRecipeById(recipeId) {
     return axios.get(`/recipes/${recipeId}`);
   },
-  updateRecipt(recipe) {
-    return axios.put(`/recipes/${recipe.recipeId}`);
+  updateRecipe(recipe) {
+    return axios.put('/recipes/update', recipe);
   }
 
 }
