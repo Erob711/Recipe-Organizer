@@ -25,6 +25,11 @@ export default {
                 title: '',
                 category: ''
             }
+            //TODO: Need to display these other tables from db
+            // ingredients
+            // instructions
+            // photos
+            // notes
         }
     },
     created() {
