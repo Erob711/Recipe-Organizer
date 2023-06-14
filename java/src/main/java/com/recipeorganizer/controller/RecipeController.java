@@ -5,6 +5,7 @@ import com.recipeorganizer.dao.RecipeDAO;
 import com.recipeorganizer.model.Recipe;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -31,5 +32,15 @@ public class RecipeController {
         Recipe recipe;
         recipe = recipeDAO.getRecipeById(recipeId);
         return recipe;
+    }
+
+    @RequestMapping(path = "/{recipeId}", method = RequestMethod.PUT)
+    public Recipe updateRecipe(@RequestBody Recipe recipe, @PathVariable int recipeId) {
+        Recipe updatedRecipe = recipeDAO.updateRecipe(recipe, recipeId);
+        if (updatedRecipe == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist");
+        } else {
+            return updatedRecipe;
+        }
     }
 }

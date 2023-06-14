@@ -62,8 +62,9 @@ public class JdbcRecipeDAO implements RecipeDAO{
     }
 
     @Override
-    public void updateRecipe(Recipe recipe) {
-
+    public Recipe updateRecipe(Recipe recipe, int recipeId) {
+        //TO DO Populate updated recipe from MapToRecipe method (get info from DB)
+        return recipe;
     }
 
     //mapping method
