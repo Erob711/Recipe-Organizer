@@ -42,6 +42,7 @@ public class JdbcIngredientsDao implements IngredientsDao {
         //so example: there could be multipe ingredients of number "2", so long as they map to different recipeIds
         //will be separate from ingredientId, which will serialize ALL ingredients regardless of recipe starting from 1
         ingredients.setIngredientNumber(rs.getInt("ingredient_number"));
+        ingredients.setMeasurement(rs.getString("measurement"));
         return ingredients;
     }
 }
