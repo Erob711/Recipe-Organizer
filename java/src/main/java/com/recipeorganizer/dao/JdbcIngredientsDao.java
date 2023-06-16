@@ -25,19 +25,23 @@ public class JdbcIngredientsDao implements IngredientsDao {
                 "\tWHERE recipe_id = ?;";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, recipId);
 
-//        while (result.next()) {
-//            Ingredients ingredient = mapRowToIngredients(result);
-//            ingredients.add(ingredient);
-//        }
+        while (result.next()) {
+            Ingredients ingredient = mapRowToIngredients(result);
+            ingredients.add(ingredient);
+        }
         return ingredients;
     }
 
-//    private Ingredients mapRowToIngredients(SqlRowSet rs) {
-//        Ingredients ingredients = new Ingredients();
-//        ingredients.setRecipeId(rs.getInt("recipe_id"));
-//        ingredients.setUserId(rs.getInt("user_id"));
-//        ingredients.setTitle(rs.getString("title"));
-//        ingredients.setCategory(rs.getString("category"));
-//        return ingredients;
-//    }
+    private Ingredients mapRowToIngredients(SqlRowSet rs) {
+        Ingredients ingredients = new Ingredients();
+        ingredients.setIngredientId(rs.getInt("ingredient_id"));
+        ingredients.setRecipeId(rs.getInt("recipe_id"));
+        ingredients.setIngredient(rs.getString("ingredient"));
+        //ingredient number will havee to be defined by the java program for now. Need to serialize based off each recipeID
+        //we only want to base that serializing off of the ingredients per recipe
+        //so example: there could be multipe ingredients of number "2", so long as they map to different recipeIds
+        //will be separate from ingredientId, which will serialize ALL ingredients regardless of recipe starting from 1
+        ingredients.setIngredientNumber(rs.getInt("ingredient_number"));
+        return ingredients;
+    }
 }
