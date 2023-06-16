@@ -1,7 +1,7 @@
 package com.recipeorganizer.controller;
 
 
-import com.recipeorganizer.dao.RecipeDAO;
+import com.recipeorganizer.dao.RecipeDao;
 import com.recipeorganizer.model.Recipe;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +13,9 @@ import java.util.List;
 @RequestMapping(path = "/recipes")
 @CrossOrigin
 public class RecipeController {
-    private final RecipeDAO recipeDAO;
+    private final RecipeDao recipeDAO;
 
-    public RecipeController(RecipeDAO recipeDAO) {
+    public RecipeController(RecipeDao recipeDAO) {
         this.recipeDAO = recipeDAO;
     }
 

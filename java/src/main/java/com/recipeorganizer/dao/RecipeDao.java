@@ -4,7 +4,7 @@ import com.recipeorganizer.model.Recipe;
 
 import java.util.List;
 
-public interface RecipeDAO {
+public interface RecipeDao {
     List<Recipe> findAllByUserId(int userId);
 
     Recipe getRecipeById(int recipeId);

@@ -2,7 +2,6 @@ package com.recipeorganizer.dao;
 
 import com.recipeorganizer.model.Recipe;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
@@ -10,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcRecipeDAO implements RecipeDAO{
+public class JdbcRecipeDao implements RecipeDao {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcRecipeDAO(JdbcTemplate jdbcTemplate) {
+    public JdbcRecipeDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
