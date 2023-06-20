@@ -2,12 +2,14 @@
     <div>
     <p></p>
     I am the view-card component!
-    <div>
+    <div class = "view-card">
+        <div class = "recipe-card">
         <p>{{ this.recipeId }}</p>
         {{ this.recipe.title }}
         {{ this.recipe.category }}
+        </div>
         <!-- <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card"></div> -->
-        <div v-for="ingredient in ingredients" :key="ingredient.ingredientId" class="ingredient-card">
+        <div v-for="ingredient in ingredients" :key="ingredient.ingredientId" class="ingredients-card">
         {{  ingredient.ingredient }}
         </div>
         <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
@@ -95,4 +97,10 @@ export default {
 </script>
 
 <style>
+.recipe-card {
+    border: 1px solid black;
+}
+.ingredients-card {
+    border: 1px solid black;
+}
 </style>
