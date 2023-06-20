@@ -6,6 +6,10 @@
         <p>{{ this.recipeId }}</p>
         {{ this.recipe.title }}
         {{ this.recipe.category }}
+        <!-- <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card"></div> -->
+        <div v-for="ingredient in ingredients" :key="ingredient.ingredientId" class="ingredient-card">
+        {{  ingredient.ingredient }}
+        </div>
         <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
     </div>
     <!-- TO DO: Ingredients for each recipe need to display properly -->
@@ -19,7 +23,7 @@
 
 <script>
 import recipeService from "../services/RecipeService.js"
-// import ingredientsService from "../services/IngredientsService.js"
+import ingredientsService from "../services/IngredientsService.js"
 export default {
     name: 'view-recipe-card',
     props: ["recipeId"],
@@ -34,26 +38,29 @@ export default {
             },
             //TODO: Need to display these other tables from db
             // ingredients
-            ingredients: [
-                {
-                    ingredientId: '',
-                    recipeId: this.recipeId,
-                    ingredient: '',
-                    ingredientNumber: '',
-                    measurement: ''
-                }
-            ]
+            // ingredients: [
+            //     {
+            //         ingredientId: '',
+            //         recipeId: this.recipeId,
+            //         ingredient: '',
+            //         ingredientNumber: '',
+            //         measurement: ''
+            //     }
+            // ]
             // instructions
             // photos
             // notes
         }
     },
     methods: {
-        // retrieveIngredients() {
-        //     ingredientsService.findAllByRecipeId(this.recipeId).then((response) => {
-        //         this.$store.commit("SET_INGREDIENTS", response.data);
-        //     });
-        // }
+        retrieveIngredients() {
+            ingredientsService.findAllByRecipeId(this.recipeId).then((response) => {
+                this.$store.commit("SET_INGREDIENTS", response.data);
+            });
+        }
+    },
+    mounted() {
+        this.retrieveIngredients();
     },
     created() {
         //get recipee
@@ -78,6 +85,11 @@ export default {
     //       this.$router.push({ name: "NotFound" });
     //     }
     //   });
+    },
+    computed: {
+        ingredients() {
+            return this.$store.state.ingredients;
+        }
     }
 }
 </script>
