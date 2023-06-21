@@ -29,7 +29,8 @@ export default new Vuex.Store({
       category: ''
     },
     ingredients: [],
-    instructions: []
+    instructions: [],
+    photos: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -59,6 +60,9 @@ export default new Vuex.Store({
     },
     SET_INSTRUCTIONS(state, data) {
       state.instructions = data;
+    },
+    SET_PHOTOS(state, data) {
+      state.photos = data;
     }
   }
 })

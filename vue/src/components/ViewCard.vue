@@ -15,9 +15,9 @@
         <div v-for="instruction in instructions" :key="instruction.instructionId" class="instructions-card">
         {{  instruction.instruction }}
         </div>
-        <!-- <div v-for= "photo in photos" :key="photo.photoId" class="photos-card">
-        {{  }}
-        </div> -->
+        <div v-for= "photo in photos" :key="photo.photoId" class="photos-card">
+        {{ photo.photoUrl }}
+        </div>
         <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
     </div>
 
@@ -28,6 +28,7 @@
 import recipeService from "../services/RecipeService.js"
 import ingredientsService from "../services/IngredientsService.js"
 import instructionsService from "../services/InstructionsService.js"
+import photosService from "../services/PhotosServices.js"
 export default {
     name: 'view-recipe-card',
     props: ["recipeId"],
@@ -57,12 +58,19 @@ export default {
             instructionsService.findAllByRecipeId(this.recipeId).then((response) => {
                 this.$store.commit("SET_INSTRUCTIONS", response.data);
             });
+        },
+        retrievePhotos() {
+            photosService.findAllByRecipeId(this.recipeId).then((response) => {
+                this.$store.commit("SET_PHOTOS", response.data);
+            });
         }
+
         
     },
     mounted() {
         this.retrieveIngredients();
         this.retrieveInstructions();
+        this.retrievePhotos();
     },
     created() {
         //get recipee
@@ -83,6 +91,9 @@ export default {
         },
         instructions() {
             return this.$store.state.instructions;
+        },
+        photos() {
+            return this.$store.state.photos;
         }
     }
 }
