@@ -15,6 +15,9 @@
         <div v-for="instruction in instructions" :key="instruction.instructionId" class="instructions-card">
         {{  instruction.instruction }}
         </div>
+        <!-- <div v-for= "photo in photos" :key="photo.photoId" class="photos-card">
+        {{  }}
+        </div> -->
         <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
     </div>
 

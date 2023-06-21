@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//maps to the ingredients of each individual recipe by recipeId
+//maps to the instructions of each individual recipe by recipeId
 @RequestMapping(path = "/recipes/{recipeId}/instructions")
 @CrossOrigin
 public class InstructionsController {
