@@ -16,7 +16,7 @@
         {{  instruction.instruction }}
         </div>
         <div v-for= "photo in photos" :key="photo.photoId" class="photos-card">
-        {{ photo.photoUrl }}
+            <img v-bind:src= photo.photoUrl alt=""  class = "recipe-photo"/>
         </div>
         <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
     </div>
@@ -108,5 +108,9 @@ export default {
 }
 .instructions-card {
     border: 1px solid black;
+}
+.recipe-photo {
+    width: 250px;
+    height: 250px;
 }
 </style>
