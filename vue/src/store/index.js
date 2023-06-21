@@ -29,6 +29,7 @@ export default new Vuex.Store({
       category: ''
     },
     ingredients: [],
+    instructions: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -55,6 +56,9 @@ export default new Vuex.Store({
     },
     SET_INGREDIENTS(state, data) {
       state.ingredients = data;
+    },
+    SET_INSTRUCTIONS(state, data) {
+      state.instructions = data;
     }
   }
 })

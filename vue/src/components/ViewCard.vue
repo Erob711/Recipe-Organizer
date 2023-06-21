@@ -12,6 +12,9 @@
         <div v-for="ingredient in ingredients" :key="ingredient.ingredientId" class="ingredients-card">
         {{  ingredient.ingredient }}
         </div>
+        <div v-for="instruction in instructions" :key="instruction.instructionId" class="instructions-card">
+        {{  instruction.instruction }}
+        </div>
         <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
     </div>
 
@@ -21,6 +24,7 @@
 <script>
 import recipeService from "../services/RecipeService.js"
 import ingredientsService from "../services/IngredientsService.js"
+import instructionsService from "../services/InstructionsService.js"
 export default {
     name: 'view-recipe-card',
     props: ["recipeId"],
@@ -46,10 +50,16 @@ export default {
                 this.$store.commit("SET_INGREDIENTS", response.data);
             });
         },
+        retrieveInstructions() {
+            instructionsService.findAllByRecipeId(this.recipeId).then((response) => {
+                this.$store.commit("SET_INSTRUCTIONS", response.data);
+            });
+        }
         
     },
     mounted() {
         this.retrieveIngredients();
+        this.retrieveInstructions();
     },
     created() {
         //get recipee
@@ -68,9 +78,9 @@ export default {
         ingredients() {
             return this.$store.state.ingredients;
         },
-        // instructions() {
-        //     return this.$store.state.instructions;
-        // }
+        instructions() {
+            return this.$store.state.instructions;
+        }
     }
 }
 </script>
@@ -80,6 +90,9 @@ export default {
     border: 1px solid black;
 }
 .ingredients-card {
+    border: 1px solid black;
+}
+.instructions-card {
     border: 1px solid black;
 }
 </style>
