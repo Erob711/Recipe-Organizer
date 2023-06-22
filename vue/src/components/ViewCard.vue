@@ -18,6 +18,9 @@
         <div v-for= "photo in photos" :key="photo.photoId" class="photos-card">
             <img v-bind:src= photo.photoUrl alt=""  class = "recipe-photo"/>
         </div>
+        <div v-for= "note in notes" :key="note.noteId" class="notes-card">
+            {{  note.note }}
+        </div>
         <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
     </div>
 
@@ -29,6 +32,7 @@ import recipeService from "../services/RecipeService.js"
 import ingredientsService from "../services/IngredientsService.js"
 import instructionsService from "../services/InstructionsService.js"
 import photosService from "../services/PhotosServices.js"
+import notesService from "../services/NotesService.js"
 export default {
     name: 'view-recipe-card',
     props: ["recipeId"],
@@ -63,6 +67,11 @@ export default {
             photosService.findAllByRecipeId(this.recipeId).then((response) => {
                 this.$store.commit("SET_PHOTOS", response.data);
             });
+        },
+        retrieveNotes() {
+            notesService.findAllByRecipeId(this.recipeId).then((response) => {
+                this.$store.commit("SET_NOTES", response.data);
+            });
         }
 
         
@@ -71,6 +80,7 @@ export default {
         this.retrieveIngredients();
         this.retrieveInstructions();
         this.retrievePhotos();
+        this.retrieveNotes();
     },
     created() {
         //get recipee
@@ -94,6 +104,9 @@ export default {
         },
         photos() {
             return this.$store.state.photos;
+        },
+        notes() {
+            return this.$store.state.notes;
         }
     }
 }
@@ -112,5 +125,8 @@ export default {
 .recipe-photo {
     width: 250px;
     height: 250px;
+}
+.notes-card {
+    border: 1px solid black;
 }
 </style>
