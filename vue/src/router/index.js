@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import ViewCard from '../views/ViewCard'
 import EditRecipePage from '../views/EditRecipePage'
+import EditIngredientsPage from '../views/EditIngredientsPage'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ const router = new Router({
       path: '/edit-recipe-page',
       name: 'edit-recipe-page',
       component: EditRecipePage
+    },
+    {
+      path: '/edit-ingredients-page',
+      name: 'edit-ingredients-page',
+      component: EditIngredientsPage
     }
   ]
 })
