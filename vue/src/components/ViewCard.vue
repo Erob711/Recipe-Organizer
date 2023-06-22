@@ -8,20 +8,24 @@
         {{ this.recipe.title }}
         {{ this.recipe.category }}
         </div>
+        <button class = "edit"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
         <!-- <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card"></div> -->
         <div v-for="ingredient in ingredients" :key="ingredient.ingredientId" class="ingredients-card">
         {{  ingredient.ingredient }}
         </div>
+        <button class = "edit"><router-link :to="{ name: 'edit-ingredients-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
         <div v-for="instruction in instructions" :key="instruction.instructionId" class="instructions-card">
         {{  instruction.instruction }}
         </div>
+        <button class = "edit"><router-link :to="{ name: 'edit-instructions-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
         <div v-for= "photo in photos" :key="photo.photoId" class="photos-card">
             <img v-bind:src= photo.photoUrl alt=""  class = "recipe-photo"/>
         </div>
+        <button class = "edit"><router-link :to="{ name: 'edit-photos-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
         <div v-for= "note in notes" :key="note.noteId" class="notes-card">
             {{  note.note }}
         </div>
-        <button class = "edit-card"><router-link :to="{ name: 'edit-recipe-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
+        <button class = "edit"><router-link :to="{ name: 'edit-notes-page', params: { recipeId: this.recipe.recipeId, recipe: this.recipe }}" >Edit</router-link></button>
     </div>
 
     </div>
