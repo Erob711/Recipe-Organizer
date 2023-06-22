@@ -20,12 +20,12 @@ public class JdbcPhotosDao implements PhotosDao {
     }
 
     @Override
-    public List<Photos> findAllByRecipeId(int recipId) {
+    public List<Photos> findAllByRecipeId(int recipeId) {
         List<Photos> photos = new ArrayList<>();
         String sql = "SELECT *\n" +
                 "\tFROM public.photos\n" +
                 "\tWHERE recipe_id = ?;";
-        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, recipId);
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, recipeId);
 
         while (result.next()) {
             Photos photo = mapRowToPhotos(result);
