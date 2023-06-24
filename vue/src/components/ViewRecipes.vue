@@ -128,6 +128,7 @@ export default {
     border-bottom: #e8b4a9;
     border-top: #DDE8A9;
     text-align: right;
+    cursor: pointer;
 }
 .filter-btn:hover {
     background-color: #e8b4a9;
