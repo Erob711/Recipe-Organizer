@@ -14,6 +14,7 @@
             <div v-for="recipe in filteredRecipes" :key="recipe.recipeId" class="recipe-card">
                 <p> {{ recipe.title }}</p>
                 <p> {{ recipe.category }}</p>
+
                 <button class="go-to">
                     <router-link :to="{ name: 'view-card', params: { recipeId: recipe.recipeId}}">Go To</router-link>
                 </button>
@@ -76,7 +77,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 200px;
+    max-height: 20%;
+    max-width: 10%;
     backdrop-filter: blur(10px);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: transform 500ms ease;
@@ -93,8 +95,9 @@ export default {
     overflow: hidden;
     margin-left: 10%;
     margin-right: 0;
-    justify-content: space-evenly;
-    height: 30%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 100%;
     width: 1500px;
     position: relative;
     left: 0%;
