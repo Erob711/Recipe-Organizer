@@ -107,7 +107,7 @@ export default {
     position: relative;
     text-align: center;
     width: 150px;
-    height: 100vh;
+    height: 50vh;
     margin-left: -10px;
     margin-right: 0px;
     overflow: hidden;
