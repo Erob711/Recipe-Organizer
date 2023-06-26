@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IngredientsDao {
     List<Ingredients> findAllByRecipeId(int recipeId);
+
+    Ingredients getIngredientsById(int ingredientId);
 }

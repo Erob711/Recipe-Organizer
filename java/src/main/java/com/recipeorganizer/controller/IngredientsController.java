@@ -27,6 +27,13 @@ public class IngredientsController {
         return ingredients;
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path="/{ingredientId}", method = RequestMethod.GET)
+    public Ingredients getIngredientsById(@PathVariable("ingredientId") int ingredientId) {
+        Ingredients ingredient;
+        ingredient = ingredientsDao.getIngredientsById(ingredientId);
+        return ingredient;
+    }
 
 
 
