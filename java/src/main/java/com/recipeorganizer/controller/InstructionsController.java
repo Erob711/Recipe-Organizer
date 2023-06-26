@@ -2,6 +2,7 @@ package com.recipeorganizer.controller;
 
 
 import com.recipeorganizer.dao.InstructionsDao;
+import com.recipeorganizer.model.Ingredients;
 import com.recipeorganizer.model.Instructions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,4 +27,15 @@ public class InstructionsController {
         List<Instructions> instructions = instructionsDao.findAllByRecipeId(recipeId);
         return instructions;
     }
+
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path="/{instructionId}", method = RequestMethod.GET)
+    public Instructions getInstructionsById(@PathVariable("instructionId") int instructionId) {
+        Instructions instruction;
+        instruction = instructionsDao.getInstructionsById(instructionId);
+        return instruction;
+    }
+
+
 }
