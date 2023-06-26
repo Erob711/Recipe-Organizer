@@ -8,4 +8,6 @@ import java.util.List;
 public interface NotesDao {
 
     List<Notes> findAllByRecipeId(int recipeId);
+
+    Notes getNotesById(int noteId);
 }

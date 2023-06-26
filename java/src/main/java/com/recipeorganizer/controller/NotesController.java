@@ -3,6 +3,7 @@ package com.recipeorganizer.controller;
 
 import com.recipeorganizer.dao.NotesDao;
 import com.recipeorganizer.dao.PhotosDao;
+import com.recipeorganizer.model.Instructions;
 import com.recipeorganizer.model.Notes;
 import com.recipeorganizer.model.Photos;
 import org.springframework.http.HttpStatus;
@@ -28,4 +29,11 @@ public class NotesController {
         return notes;
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path="/{noteId}", method = RequestMethod.GET)
+    public Notes getNotesById(@PathVariable("noteId") int noteId) {
+        Notes note;
+        note = notesDao.getNotesById(noteId);
+        return note;
+    }
 }

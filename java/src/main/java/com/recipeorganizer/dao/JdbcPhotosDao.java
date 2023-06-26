@@ -2,6 +2,7 @@ package com.recipeorganizer.dao;
 
 import com.recipeorganizer.model.Ingredients;
 import com.recipeorganizer.model.Instructions;
+import com.recipeorganizer.model.Notes;
 import com.recipeorganizer.model.Photos;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -33,6 +34,20 @@ public class JdbcPhotosDao implements PhotosDao {
         }
         return photos;
     }
+
+    @Override
+    public Photos getPhotoById(int photoId) {
+        Photos photo = new Photos();
+        String sql = "SELECT *\n" +
+                "\tFROM public.photos\n" +
+                "\tWHERE photo_id = ?;";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, photoId);
+        if (result.next()) {
+            photo = mapRowToPhotos(result);
+        }
+        return photo;
+    }
+
 
     private Photos mapRowToPhotos(SqlRowSet rs) {
         Photos photos = new Photos();

@@ -4,6 +4,7 @@ package com.recipeorganizer.controller;
 import com.recipeorganizer.dao.InstructionsDao;
 import com.recipeorganizer.dao.PhotosDao;
 import com.recipeorganizer.model.Instructions;
+import com.recipeorganizer.model.Notes;
 import com.recipeorganizer.model.Photos;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,5 +28,13 @@ public class PhotosController {
     public List<Photos> findAllByRecipeId(@PathVariable("recipeId") int recipeId) {
         List<Photos> instructions = photosDao.findAllByRecipeId(recipeId);
         return instructions;
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path="/{photoId}", method = RequestMethod.GET)
+    public Photos getPhotosById(@PathVariable("photoId") int photoId) {
+        Photos photo;
+        photo = photosDao.getPhotoById(photoId);
+        return photo;
     }
 }
