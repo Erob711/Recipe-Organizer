@@ -5,6 +5,7 @@ import com.recipeorganizer.model.Ingredients;
 import com.recipeorganizer.model.Recipe;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -35,6 +36,16 @@ public class IngredientsController {
         return ingredient;
     }
 
+
+    @RequestMapping(path = "/update", method = RequestMethod.PUT)
+    public Ingredients updateIngredient(@RequestBody Ingredients ingredient) {
+        Ingredients updatedIngredient = ingredientsDao.updateIngredient(ingredient);
+        if (updatedIngredient == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist");
+        } else {
+            return updatedIngredient;
+        }
+    }
 
 
 }

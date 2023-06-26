@@ -45,6 +45,16 @@ public class JdbcIngredientsDao implements IngredientsDao {
         return ingredient;
     }
 
+    @Override
+    public Ingredients updateIngredient(Ingredients ingredient) {
+            //TO DO Populate updated recipe from MapToRecipe method (get info from DB)
+            String sql = "UPDATE ingredients " +
+                    "SET ingredient = ?, measurement = ? " +
+                    "WHERE ingredient_id = ?;";
+            jdbcTemplate.update(sql, ingredient.getIngredient(), ingredient.getMeasurement(), ingredient.getIngredientId());
+            return ingredient;
+    }
+
     private Ingredients mapRowToIngredients(SqlRowSet rs) {
         Ingredients ingredients = new Ingredients();
         ingredients.setIngredientId(rs.getInt("ingredient_id"));

@@ -9,4 +9,6 @@ public interface IngredientsDao {
     List<Ingredients> findAllByRecipeId(int recipeId);
 
     Ingredients getIngredientsById(int ingredientId);
+
+    Ingredients updateIngredient(Ingredients ingredient);
 }
