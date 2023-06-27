@@ -9,4 +9,6 @@ public interface InstructionsDao {
     List<Instructions> findAllByRecipeId(int recipeId);
 
     Instructions getInstructionsById(int instructionId);
+
+    Instructions updateInstructions(Instructions instruction);
 }

@@ -44,6 +44,15 @@ public class JdbcInstructionsDao implements InstructionsDao{
         return instruction;
     }
 
+    @Override
+    public Instructions updateInstructions(Instructions instruction) {
+        String sql = "UPDATE instructions " +
+                "SET instruction = ?, instruction_number = ? " +
+                "WHERE instruction_id = ?;";
+        jdbcTemplate.update(sql, instruction.getInstruction(), instruction.getInstructionNumber(), instruction.getInstructionId());
+        return instruction;
+    }
+
 
     private Instructions mapRowToInstructions(SqlRowSet rs) {
         Instructions instructions = new Instructions();
