@@ -11,7 +11,7 @@ public interface RecipeDao {
 
     Recipe findByRecipeName(String recipeName);
 
-    void createRecipe(Recipe recipe);
+    Recipe createRecipe(Recipe recipe);
 
     void deleteRecipe(int recipeId);
 

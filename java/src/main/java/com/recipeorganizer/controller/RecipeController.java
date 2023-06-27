@@ -34,6 +34,12 @@ public class RecipeController {
         return recipe;
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path ="/create", method = RequestMethod.POST)
+    public Recipe createRecipe(@RequestBody Recipe newRecipe) {
+        return recipeDAO.createRecipe(newRecipe);
+    }
+
     @RequestMapping(path = "/update", method = RequestMethod.PUT)
     public Recipe updateRecipe(@RequestBody Recipe recipe) {
         Recipe updatedRecipe = recipeDAO.updateRecipe(recipe);
