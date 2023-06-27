@@ -8,4 +8,6 @@ public interface PhotosDao {
     List<Photos> findAllByRecipeId(int recipeId);
 
     Photos getPhotoById(int photoId);
+
+    Photos updatePhotos(Photos photo);
 }

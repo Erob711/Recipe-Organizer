@@ -48,6 +48,15 @@ public class JdbcPhotosDao implements PhotosDao {
         return photo;
     }
 
+    @Override
+    public Photos updatePhotos(Photos photo) {
+        String sql = "UPDATE photos " +
+                "SET photo_url = ? " +
+                "WHERE photo_id = ?;";
+        jdbcTemplate.update(sql, photo.getPhotoUrl(), photo.getPhotoId());
+        return photo;
+    }
+
 
     private Photos mapRowToPhotos(SqlRowSet rs) {
         Photos photos = new Photos();

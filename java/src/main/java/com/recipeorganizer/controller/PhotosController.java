@@ -8,6 +8,7 @@ import com.recipeorganizer.model.Notes;
 import com.recipeorganizer.model.Photos;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -36,5 +37,16 @@ public class PhotosController {
         Photos photo;
         photo = photosDao.getPhotoById(photoId);
         return photo;
+    }
+
+
+    @RequestMapping(path = "/update", method = RequestMethod.PUT)
+    public Photos updatePhotos(@RequestBody Photos photo) {
+        Photos updatedPhotos = photosDao.updatePhotos(photo);
+        if (updatedPhotos == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist");
+        } else {
+            return updatedPhotos;
+        }
     }
 }
