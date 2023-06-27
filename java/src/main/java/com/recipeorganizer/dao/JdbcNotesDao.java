@@ -48,6 +48,15 @@ public class JdbcNotesDao implements NotesDao{
         return note;
     }
 
+    @Override
+    public Notes updateNotes(Notes note) {
+        String sql = "UPDATE notes " +
+                "SET note = ? " +
+                "WHERE note_id = ?;";
+        jdbcTemplate.update(sql, note.getNote(), note.getNoteId());
+        return note;
+    }
+
     private Notes mapRowToNotes(SqlRowSet rs) {
         Notes note = new Notes();
         note.setNoteId(rs.getInt("note_id"));

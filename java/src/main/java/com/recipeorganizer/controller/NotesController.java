@@ -8,6 +8,7 @@ import com.recipeorganizer.model.Notes;
 import com.recipeorganizer.model.Photos;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -35,5 +36,15 @@ public class NotesController {
         Notes note;
         note = notesDao.getNotesById(noteId);
         return note;
+    }
+
+    @RequestMapping(path = "/update", method = RequestMethod.PUT)
+    public Notes updateNotes(@RequestBody Notes note) {
+        Notes updatedNotes = notesDao.updateNotes(note);
+        if (updatedNotes == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist");
+        } else {
+            return updatedNotes;
+        }
     }
 }
