@@ -11,4 +11,6 @@ public interface IngredientsDao {
     Ingredients getIngredientsById(int ingredientId);
 
     Ingredients updateIngredient(Ingredients ingredient);
+
+    Ingredients createIngredient(Ingredients newIngredient);
 }

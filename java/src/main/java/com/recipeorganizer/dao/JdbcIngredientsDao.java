@@ -55,6 +55,27 @@ public class JdbcIngredientsDao implements IngredientsDao {
             return ingredient;
     }
 
+    @Override
+    public Ingredients createIngredient(Ingredients newIngredient) {
+            String sql = "INSERT INTO ingredients (recipe_id, ingredient, ingredient_number, measurement) " +
+                    "VALUES (?, ?, ?, ?) RETURNING ingredient_id; ";
+            Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
+                    newIngredient.getRecipeId(), newIngredient.getIngredient(), newIngredient.getIngredientNumber(), newIngredient.getMeasurement());
+            return findById(newId);
+    }
+
+    private Ingredients findById(Integer newId) {
+        String sql = "SELECT * \n" +
+                "FROM ingredients\n" +
+                "WHERE ingredients.ingredient_id = ?;\n";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, newId);
+        if (results.next()) {
+            return mapRowToIngredients(results);
+        } else {
+            return null;
+        }
+    }
+
     private Ingredients mapRowToIngredients(SqlRowSet rs) {
         Ingredients ingredients = new Ingredients();
         ingredients.setIngredientId(rs.getInt("ingredient_id"));

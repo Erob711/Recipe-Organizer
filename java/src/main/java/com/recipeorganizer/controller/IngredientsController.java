@@ -36,6 +36,12 @@ public class IngredientsController {
         return ingredient;
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path ="/create", method = RequestMethod.POST)
+    public Ingredients createIngredient(@RequestBody Ingredients newIngredient) {
+        return ingredientsDao.createIngredient(newIngredient);
+    }
+
 
     @RequestMapping(path = "/update", method = RequestMethod.PUT)
     public Ingredients updateIngredient(@RequestBody Ingredients ingredient) {
