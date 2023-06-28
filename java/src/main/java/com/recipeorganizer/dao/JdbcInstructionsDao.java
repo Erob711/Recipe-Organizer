@@ -53,6 +53,27 @@ public class JdbcInstructionsDao implements InstructionsDao{
         return instruction;
     }
 
+    @Override
+    public Instructions createInstruction(Instructions newInstruction) {
+        String sql = "INSERT INTO instructions (recipe_id, instruction, instruction_number) " +
+                "VALUES (?, ?, ?) RETURNING instruction_id; ";
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
+                newInstruction.getRecipeId(), newInstruction.getInstruction(), newInstruction.getInstructionNumber());
+        return findById(newId);
+    }
+
+    private Instructions findById(Integer newId) {
+        String sql = "SELECT * \n" +
+                "FROM instructions\n" +
+                "WHERE instructions.instruction_id = ?;\n";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, newId);
+        if (results.next()) {
+            return mapRowToInstructions(results);
+        } else {
+            return null;
+        }
+    }
+
 
     private Instructions mapRowToInstructions(SqlRowSet rs) {
         Instructions instructions = new Instructions();

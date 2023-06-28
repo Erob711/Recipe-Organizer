@@ -49,5 +49,11 @@ public class InstructionsController {
         }
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path ="/create", method = RequestMethod.POST)
+    public Instructions createInstruction(@RequestBody Instructions newInstruction) {
+        return instructionsDao.createInstruction(newInstruction);
+    }
+
 
 }

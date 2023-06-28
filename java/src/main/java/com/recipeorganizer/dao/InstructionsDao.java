@@ -11,4 +11,6 @@ public interface InstructionsDao {
     Instructions getInstructionsById(int instructionId);
 
     Instructions updateInstructions(Instructions instruction);
+
+    Instructions createInstruction(Instructions newInstruction);
 }
