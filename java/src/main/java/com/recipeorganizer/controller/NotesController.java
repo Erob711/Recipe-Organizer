@@ -47,4 +47,10 @@ public class NotesController {
             return updatedNotes;
         }
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path ="/create", method = RequestMethod.POST)
+    public Notes createNote(@RequestBody Notes newNote) {
+        return notesDao.createNote(newNote);
+    }
 }

@@ -56,20 +56,9 @@ public class JdbcRecipeDao implements RecipeDao {
                 "VALUES (?, ?, ?) RETURNING recipe_id; ";
         Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
                 recipe.getUserId(), recipe.getTitle(), recipe.getCategory());
-        return findById(newId);
+        return getRecipeById(newId);
     }
 
-    private Recipe findById(Integer newId) {
-        String sql = "SELECT * \n" +
-                "FROM recipes\n" +
-                "WHERE recipes.recipe_id = ?;\n";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, newId);
-        if (results.next()) {
-            return mapRowToRecipe(results);
-        } else {
-            return null;
-        }
-    }
 
     @Override
     public void deleteRecipe(int recipeId) {

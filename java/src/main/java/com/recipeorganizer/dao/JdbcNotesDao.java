@@ -57,6 +57,16 @@ public class JdbcNotesDao implements NotesDao{
         return note;
     }
 
+    @Override
+    public Notes createNote(Notes newNote) {
+        String sql = "INSERT INTO notes (recipe_id, note) " +
+                "VALUES (?, ?) RETURNING note_id; ";
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
+                newNote.getRecipeId(), newNote.getNote());
+        return getNotesById(newId);
+    }
+
+
     private Notes mapRowToNotes(SqlRowSet rs) {
         Notes note = new Notes();
         note.setNoteId(rs.getInt("note_id"));

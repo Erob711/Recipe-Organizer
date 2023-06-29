@@ -12,4 +12,6 @@ public interface NotesDao {
     Notes getNotesById(int noteId);
 
     Notes updateNotes(Notes note);
+
+    Notes createNote(Notes newNote);
 }
