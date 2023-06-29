@@ -49,4 +49,10 @@ public class PhotosController {
             return updatedPhotos;
         }
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(path ="/create", method = RequestMethod.POST)
+    public Photos createPhoto(@RequestBody Photos newPhoto) {
+        return photosDao.createPhoto(newPhoto);
+    }
 }

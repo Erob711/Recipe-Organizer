@@ -57,6 +57,15 @@ public class JdbcPhotosDao implements PhotosDao {
         return photo;
     }
 
+    @Override
+    public Photos createPhoto(Photos newPhoto) {
+        String sql = "INSERT INTO photos (recipe_id, photo_url) " +
+                "VALUES (?, ?) RETURNING photo_id; ";
+        Integer newId = jdbcTemplate.queryForObject(sql, Integer.class,
+                newPhoto.getRecipeId(), newPhoto.getPhotoUrl());
+        return getPhotoById(newId);
+    }
+
 
     private Photos mapRowToPhotos(SqlRowSet rs) {
         Photos photos = new Photos();
