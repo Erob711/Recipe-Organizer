@@ -8,7 +8,7 @@ import store from '../store/index'
 import ViewCard from '../views/ViewCard'
 import EditRecipePage from '../views/EditRecipePage'
 import EditIngredientsPage from '../views/EditIngredientsPage'
-
+import CreateRecipePage from '../views/CreateRecipePage'
 Vue.use(Router)
 
 /**
@@ -70,6 +70,11 @@ const router = new Router({
       path: '/edit-ingredients-page',
       name: 'edit-ingredients-page',
       component: EditIngredientsPage
+    },
+    {
+      path: '/create-recipe-page',
+      name: 'create-recipe-page',
+      component: CreateRecipePage
     }
   ]
 })

@@ -20,6 +20,8 @@ export default {
   components: {
     TheHeader,
     TheFooter
+    //comment
+    //added with MacVim
   }
 }
 </script>

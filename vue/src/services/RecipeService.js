@@ -10,6 +10,9 @@ export default {
   },
   updateRecipe(recipe) {
     return axios.put('/recipes/update', recipe);
+  },
+  createRecipe(recipe) {
+    return axios.post('/recipes/create', recipe);
   }
 
 }

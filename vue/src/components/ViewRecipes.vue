@@ -8,6 +8,7 @@
         <button class = "filter-btn" @click="selectCategory('Healthy')">Healthy</button>
         <button class = "filter-btn" @click="selectCategory('Simple')">Simple</button>
         <button class = "filter-btn" @click="selectCategory('Cost Effective')">Cost Effective</button>
+        <button class = "create-new-recipe" @click="createNewRecipe()">New Recipe</button>
         </div>
     
         <div class="recipe-container">
@@ -48,6 +49,9 @@ export default {
         selectCategory(category) {
             this.selectedCategory = category;
         },
+        createNewRecipe() {
+            this.$router.push('create-recipe-page');
+        }
     },
     computed: {
         filteredRecipes() {
@@ -140,6 +144,10 @@ export default {
 
 .filter-btn:active {
     background-color: #64382F;
+}
+
+.create-new-recipe {
+    height: 20px;
 }
 
 </style>
