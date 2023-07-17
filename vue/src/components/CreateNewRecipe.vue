@@ -18,6 +18,7 @@
 import ingredientService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/IngredientsService.js";
 import recipeService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/RecipeService.js";
 import instructionsService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/InstructionsService.js";
+import photoService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/PhotosService.js";
 export default {
     name: "create-recipe-form",
     data() {
@@ -40,7 +41,10 @@ export default {
                 instruction: "",
                 instructionNumber: 3
             },
-            photos: [],
+            photo: {
+                recipeId: "",
+                photoUrl: ""
+            },
             notes: {
 
             }
@@ -49,14 +53,17 @@ export default {
     methods: {
         createRecipe() {
               recipeService.createRecipe(this.recipe).then((response) => {
+                let newRecipeId = response.data.recipeId;
                 //create ingredient
-                this.ingredient.recipeId = response.data.recipeId;
+                this.ingredient.recipeId = newRecipeId;
                 this.createIngredient(this.ingredient.recipeId);
 
                 //create instructions
-                this.instructions.recipeId = response.data.recipeId;
+                this.instructions.recipeId = newRecipeId;
                 this.createInstructions(this.instructions.recipeId);
                 //create photos
+                this.photo.recipeId = newRecipeId;
+                this.createPhoto(this.photo.recipeId);
 
                 //create notes
                  console.log(response.data);
@@ -78,6 +85,16 @@ export default {
     },
     createInstructions(newRecipeId) {
         instructionsService.createInstructions(newRecipeId, this.instructions).then((response) => {
+                console.log("working");
+                console.log(response.data);
+             }).catch((error) => {
+             if (error.response.status == 404) {
+                this.$router.push({ name: "home" });
+                }
+         });
+    },
+    createPhoto(newRecipeId) {
+        photoService.createPhoto(newRecipeId, this.photo).then((response) => {
                 console.log("working");
                 console.log(response.data);
              }).catch((error) => {
