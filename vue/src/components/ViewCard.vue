@@ -35,7 +35,7 @@
 import recipeService from "../services/RecipeService.js"
 import ingredientsService from "../services/IngredientsService.js"
 import instructionsService from "../services/InstructionsService.js"
-import photosService from "../services/PhotosServices.js"
+import photosService from "../services/PhotosService.js"
 import notesService from "../services/NotesService.js"
 export default {
     name: 'view-recipe-card',

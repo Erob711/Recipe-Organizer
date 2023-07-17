@@ -6,7 +6,7 @@
             <label for="title">Title:<input type = "text" v-model="recipe.title"/></label>
             <label for="ingredient">Ingredients:<input type = "text" v-model="ingredient.ingredient"></label>
             <label for="instructions">Instructions:<input type = "text" v-model="instructions.instruction"></label>
-            <label for="photo-url">Photo Url:<input type = "text"></label>
+            <label for="photo-url">Photo Url:<input type = "text" v-model="photo.photoUrl"></label>
             <label for="notes">Notes:<input type = "text"></label>
             <button type="button" v-on:click="createRecipe">Submit Updated Listing</button>
             <button type="button" v-on:click="createIngredient">Whats da recipe??!</button>
@@ -68,8 +68,8 @@ export default {
                 //create notes
                  console.log(response.data);
          }).catch((error) => {
-             if (error.response.status == 404) {
-                this.$router.push({ name: "home" });
+             if (error) {
+                console.log("issue happened");
                 }
          });
         },
@@ -98,8 +98,8 @@ export default {
                 console.log("working");
                 console.log(response.data);
              }).catch((error) => {
-             if (error.response.status == 404) {
-                this.$router.push({ name: "home" });
+             if (error) {
+                console.log("issue with photo");
                 }
          });
     }
