@@ -4,31 +4,36 @@
         <h2>Create New Recipe</h2>
         <form class ="recipe-form">
             <label for="title">Title:<input type = "text" v-model="recipe.title"/></label>
-            <label for="ingredient">Ingredients:<input type = "text"></label>
+            <label for="ingredient">Ingredients:<input type = "text" v-model="ingredient.ingredient"></label>
             <label for="instructions">Instructions:<input type = "text"></label>
             <label for="photo-url">Photo Url:<input type = "text"></label>
             <label for="notes">Notes:<input type = "text"></label>
             <button type="button" v-on:click="createRecipe">Submit Updated Listing</button>
-            <button type="button" v-on:click="printActiveRecipe">Whats da recipe??!</button>
+            <button type="button" v-on:click="createIngredient">Whats da recipe??!</button>
         </form>
     </div>
 </template>
 
 <script>
+import ingredientService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/IngredientsService.js";
 import recipeService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/RecipeService.js";
 export default {
     name: "create-recipe-form",
     data() {
         return {
-            recipeId: "",
+            activeRecipeId: "",
             recipe: {
                 userId: this.$store.state.user.id,
                 title: "",
                 category: ""
             },
-            ingredients: [
+            ingredient: {
+                recipeId: "",
+                ingredient: "",
+                ingredientNumber: 3,
+                measurement: ""
 
-            ],
+            },
             instructions: {
 
             },
@@ -40,15 +45,27 @@ export default {
     },
     methods: {
         createRecipe() {
-            recipeService.createRecipe(this.recipe).then((response) => {
-                this.$store.commit("SET_ACTIVE_RECIPE", response.data);
-                //console.log(recipeService.getRecipeById(this.$store.state.activeRecipe.recipeId));
-        });
+              recipeService.createRecipe(this.recipe).then((response) => {
+                this.ingredient.recipeId = response.data.recipeId;
+                this.createIngredient(this.ingredient.recipeId);
+                 console.log(response.data);
+         }).catch((error) => {
+             if (error.response.status == 404) {
+                this.$router.push({ name: "home" });
+                }
+         });
         },
-    printActiveRecipe() {
-        console.log(recipeService.getRecipeById(this.$store.state.activeRecipe.recipeId));
+    createIngredient(newRecipeId) {
+        ingredientService.createIngredient(newRecipeId, this.ingredient).then((response) => {
+                console.log("working");
+                console.log(response.data);
+             }).catch((error) => {
+             if (error.response.status == 404) {
+                this.$router.push({ name: "home" });
+                }
+         });
     }
-    }
+    },
 }
 </script>
 
