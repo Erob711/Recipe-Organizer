@@ -57,7 +57,7 @@ const router = new Router({
       }
     },
     {
-      path: 'view-card',
+      path: '/view-card',
       name: 'view-card',
       component: ViewCard
     },

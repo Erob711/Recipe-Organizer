@@ -8,7 +8,8 @@
             <label for="instructions">Instructions:<input type = "text"></label>
             <label for="photo-url">Photo Url:<input type = "text"></label>
             <label for="notes">Notes:<input type = "text"></label>
-            <button type="submit" v-on:click="createRecipe">Submit Updated Listing</button>
+            <button type="button" v-on:click="createRecipe">Submit Updated Listing</button>
+            <button type="button" v-on:click="printActiveRecipe">Whats da recipe??!</button>
         </form>
     </div>
 </template>
@@ -19,6 +20,7 @@ export default {
     name: "create-recipe-form",
     data() {
         return {
+            recipeId: "",
             recipe: {
                 userId: this.$store.state.user.id,
                 title: "",
@@ -38,8 +40,14 @@ export default {
     },
     methods: {
         createRecipe() {
-            recipeService.createRecipe(this.recipe);
-        }
+            recipeService.createRecipe(this.recipe).then((response) => {
+                this.$store.commit("SET_ACTIVE_RECIPE", response.data);
+                //console.log(recipeService.getRecipeById(this.$store.state.activeRecipe.recipeId));
+        });
+        },
+    printActiveRecipe() {
+        console.log(recipeService.getRecipeById(this.$store.state.activeRecipe.recipeId));
+    }
     }
 }
 </script>

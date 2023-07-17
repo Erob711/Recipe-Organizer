@@ -7,7 +7,7 @@
 <script>
 import createNewRecipe from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/components/CreateNewRecipe.vue"
 export default {
-    name: "create-recipe-page",
+    //name: "create-recipe-page",
     components: {
         createNewRecipe
     }
