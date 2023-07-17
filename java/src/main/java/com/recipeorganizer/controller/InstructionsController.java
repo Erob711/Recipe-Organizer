@@ -8,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
+@PermitAll
 @RestController
 //maps to the instructions of each individual recipe by recipeId
 @RequestMapping(path = "/recipes/{recipeId}/instructions")
