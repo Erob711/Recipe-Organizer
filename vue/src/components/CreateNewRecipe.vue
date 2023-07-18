@@ -6,8 +6,12 @@
             <label for="title">Title:<input type = "text" v-model="recipe.title"/></label>
             <div class = "ingredients" v-for="(input, index) in ingredients" :key="`ingredientInput-${index}`">
                 <label for="ingredient">Ingredients:<input type = "text" v-model="input.ingredient"></label>
+                <div class = "add-and-remove-buttons">
+                    <button type="button" v-on:click="addIngredient(ingredients)">Add Ingredient</button>
+                    <button type="button" v-on:click="removeIngredient(index, ingredients)">Remove Ingredient</button>
+                </div>
             </div>
-            <button type="button" v-on:click="addIngredient">Add Ingredient</button>
+            
             <label for="instructions">Instructions:<input type = "text" v-model="instructions.instruction"></label>
             <label for="photo-url">Photo Url:<input type = "text" v-model="photo.photoUrl"></label>
             <label for="notes">Notes:<input type = "text" v-model="note.note"></label>
@@ -122,8 +126,11 @@ export default {
                 }
          });
     },
-    addIngredient() {
-        console.log("does nothing yet");
+    addIngredient(ingredients) {
+        ingredients.push({});
+    },
+    removeIngredient(index, ingredients){
+        ingredients.splice(index, 1);
     }
     },
 }
