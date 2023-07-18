@@ -2,7 +2,7 @@
     <div>
         <!-- TODO: make Create new Recipe form  -->
         <h2>Create New Recipe</h2>
-        <form class ="recipe-form">
+        <form class ="recipe-form" ref="recipeForm" @submit="createRecipe">
             <label for="title">Title:<input type = "text" v-model="recipe.title"/></label>
             <div class = "ingredients" v-for="(input, index) in ingredients" :key="`ingredientInput-${index}`">
                 <label for="ingredient">Ingredients:<input type = "text" v-model="input.ingredient"></label>
@@ -67,19 +67,18 @@ export default {
                     ingredient.recipeId = newRecipeId;
                     this.createIngredient(ingredient.recipeId, ingredient);
                 });
-
                 //create instructions
                 this.instructions.recipeId = newRecipeId;
                 this.createInstructions(this.instructions.recipeId);
                 //create photos
                 this.photo.recipeId = newRecipeId;
                 this.createPhoto(this.photo.recipeId);
-
                 //create notes
                 this.note.recipeId = newRecipeId;
                 this.createNote(this.note.recipeId);
-
                  console.log(response.data);
+
+                 this.$refs.recipeForm.reset();
          }).catch((error) => {
              if (error) {
                 console.log("issue happened");
@@ -127,10 +126,7 @@ export default {
          });
     },
     addIngredient(ingredients) {
-        ingredients.push({recipeId: "",
-                        ingredient: "",
-                        ingredientNumber: 3,
-                        measurement: ""});
+        ingredients.push({});
     },
     removeIngredient(index, ingredients){
         ingredients.splice(index, 1);
