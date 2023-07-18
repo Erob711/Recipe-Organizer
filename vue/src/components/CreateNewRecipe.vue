@@ -8,8 +8,7 @@
             <label for="instructions">Instructions:<input type = "text" v-model="instructions.instruction"></label>
             <label for="photo-url">Photo Url:<input type = "text" v-model="photo.photoUrl"></label>
             <label for="notes">Notes:<input type = "text" v-model="note.note"></label>
-            <button type="button" v-on:click="createRecipe">Submit Updated Listing</button>
-            <button type="button" v-on:click="createIngredient">Whats da recipe??!</button>
+            <button type="button" v-on:click="createRecipe">Submit New Recipe</button>
         </form>
     </div>
 </template>
