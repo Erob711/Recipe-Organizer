@@ -4,7 +4,10 @@
         <h2>Create New Recipe</h2>
         <form class ="recipe-form">
             <label for="title">Title:<input type = "text" v-model="recipe.title"/></label>
-            <label for="ingredient">Ingredients:<input type = "text" v-model="ingredient.ingredient"></label>
+            <div class = "ingredients" v-for="(input, index) in ingredients" :key="`ingredientInput-${index}`">
+                <label for="ingredient">Ingredients:<input type = "text" v-model="input.ingredient"></label>
+            </div>
+            <button type="button" v-on:click="addIngredient">Add Ingredient</button>
             <label for="instructions">Instructions:<input type = "text" v-model="instructions.instruction"></label>
             <label for="photo-url">Photo Url:<input type = "text" v-model="photo.photoUrl"></label>
             <label for="notes">Notes:<input type = "text" v-model="note.note"></label>
@@ -29,13 +32,15 @@ export default {
                 title: "",
                 category: ""
             },
-            ingredient: {
+            ingredients: [{
                 recipeId: "",
                 ingredient: "",
                 ingredientNumber: 3,
                 measurement: ""
 
             },
+            {},
+            {}],
             instructions: {
                 recipeId: "",
                 instruction: "",
@@ -116,6 +121,9 @@ export default {
                 console.log("issue with note");
                 }
          });
+    },
+    addIngredient() {
+        console.log("does nothing yet");
     }
     },
 }
