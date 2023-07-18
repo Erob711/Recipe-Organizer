@@ -7,7 +7,7 @@
             <label for="ingredient">Ingredients:<input type = "text" v-model="ingredient.ingredient"></label>
             <label for="instructions">Instructions:<input type = "text" v-model="instructions.instruction"></label>
             <label for="photo-url">Photo Url:<input type = "text" v-model="photo.photoUrl"></label>
-            <label for="notes">Notes:<input type = "text"></label>
+            <label for="notes">Notes:<input type = "text" v-model="note.note"></label>
             <button type="button" v-on:click="createRecipe">Submit Updated Listing</button>
             <button type="button" v-on:click="createIngredient">Whats da recipe??!</button>
         </form>
@@ -19,6 +19,7 @@ import ingredientService from "/Users/ericroberson/Desktop/workspace/Recipe-Orga
 import recipeService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/RecipeService.js";
 import instructionsService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/InstructionsService.js";
 import photoService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/PhotosService.js";
+import notesService from "/Users/ericroberson/Desktop/workspace/Recipe-Organizer/Recipe-Organizer-App/vue/src/services/NotesService.js";
 export default {
     name: "create-recipe-form",
     data() {
@@ -45,8 +46,9 @@ export default {
                 recipeId: "",
                 photoUrl: ""
             },
-            notes: {
-
+            note: {
+                recipeId: "",
+                note: ""
             }
         }
     },
@@ -66,6 +68,9 @@ export default {
                 this.createPhoto(this.photo.recipeId);
 
                 //create notes
+                this.note.recipeId = newRecipeId;
+                this.createNote(this.note.recipeId);
+
                  console.log(response.data);
          }).catch((error) => {
              if (error) {
@@ -100,6 +105,16 @@ export default {
              }).catch((error) => {
              if (error) {
                 console.log("issue with photo");
+                }
+         });
+    },
+    createNote(newRecipeId) {
+        notesService.createNote(newRecipeId, this.note).then((response) => {
+                console.log("working");
+                console.log(response.data);
+             }).catch((error) => {
+             if (error) {
+                console.log("issue with note");
                 }
          });
     }
