@@ -42,9 +42,7 @@ export default {
                 ingredientNumber: 3,
                 measurement: ""
 
-            },
-            {},
-            {}],
+            }],
             instructions: {
                 recipeId: "",
                 instruction: "",
@@ -64,9 +62,11 @@ export default {
         createRecipe() {
               recipeService.createRecipe(this.recipe).then((response) => {
                 let newRecipeId = response.data.recipeId;
-                //create ingredient
-                this.ingredient.recipeId = newRecipeId;
-                this.createIngredient(this.ingredient.recipeId);
+                //create ingredients
+                this.ingredients.forEach((ingredient) => {
+                    ingredient.recipeId = newRecipeId;
+                    this.createIngredient(ingredient.recipeId, ingredient);
+                });
 
                 //create instructions
                 this.instructions.recipeId = newRecipeId;
@@ -86,8 +86,8 @@ export default {
                 }
          });
         },
-    createIngredient(newRecipeId) {
-        ingredientService.createIngredient(newRecipeId, this.ingredient).then((response) => {
+    createIngredient(newRecipeId, ingredient) {
+        ingredientService.createIngredient(newRecipeId, ingredient).then((response) => {
                 console.log("working");
                 console.log(response.data);
              }).catch((error) => {
@@ -127,7 +127,10 @@ export default {
          });
     },
     addIngredient(ingredients) {
-        ingredients.push({});
+        ingredients.push({recipeId: "",
+                        ingredient: "",
+                        ingredientNumber: 3,
+                        measurement: ""});
     },
     removeIngredient(index, ingredients){
         ingredients.splice(index, 1);
