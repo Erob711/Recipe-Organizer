@@ -3,28 +3,27 @@
         <body>
         
         <!-- TODO: make Create new Recipe form  -->
-        <h2>Create New Recipe</h2>
+    <h2>Create New Recipe</h2>
+    <div class="container">
         <form class ="recipe-form" ref="recipeForm" @submit="createRecipe">
-            <label for="title">Title:<input type = "text" v-model="recipe.title"/></label>
+            <input type = "text" class = "item" v-model="recipe.title" placeholder="Title"/>
             <div class = "ingredients" v-for="(input, index) in ingredients" :key="`ingredientInput-${index}`">
-                <label for="ingredient">Ingredients:<input type = "text" v-model="input.ingredient"></label>
+                <input type = "text" class = "item" v-model="input.ingredient" placeholder="Ingredient">
                 <div class = "add-and-remove-buttons">
-                    <!-- <button type="button" v-on:click="addIngredient(ingredients)">Add Ingredient</button> -->
-                    <!-- <a @click.prevent="addIngredient(ingredients)"><i class="fas fa-minus-circle"></i></a> -->
                     <a @click.prevent="addIngredient(ingredients)"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></a>
                     <a @click.prevent="removeIngredient(index, ingredients)"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></a>
-                    <!-- <button type="button" v-on:click="removeIngredient(index, ingredients)">Remove Ingredient</button> -->
                 </div>
             </div>
             
-            <label for="instructions">Instructions:<input type = "text" v-model="instructions.instruction"></label>
-            <label for="photo-url">Photo Url:<input type = "text" v-model="photo.photoUrl"></label>
-            <label for="notes">Notes:<input type = "text" v-model="note.note"></label>
+            <input type = "text" class = "item" placeholder="Instructions" v-model="instructions.instruction">
+            <input type = "text" class = "item" placeholder="Photo URL" v-model="photo.photoUrl">
+            <input type = "text" class = "item" placeholder="Additional Notes" v-model="note.note">
             <button type="button" v-on:click="createRecipe">Submit New Recipe</button>
 
             <!-- TEST -->
             <!-- TEST -->
         </form>
+    </div>
         </body>
     </div>
     
@@ -148,17 +147,36 @@ export default {
 </script>
 
 <style>
-form {
+
+.container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 .recipe-form {
-    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+.item {
+    flex: 1 1 0px;
+    width: 10;
 }
 h2 {
-    margin-top: 10%;
+    padding-top: 10%;
+    height: 80%;
 }
-.fas fa-minus-circle {
-    color: black;
+.ingredients {
+    display: flex;
+}
+/* .ingredient {
+    flex: 1;
+    border: 2px solid yellow;
+} */
+.ingredients:first-child {
+    margin-right: 20px;
+}
+.add-and-remove-buttons {
+    
 }
 </style>
