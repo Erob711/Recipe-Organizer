@@ -161,9 +161,10 @@ export default {
 .item {
     flex: 1 1 0px;
     width: 10;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 h2 {
+    margin-right: 22px;
     padding-top: 10%;
     height: 80%;
 }
