@@ -115,10 +115,11 @@ export default {
     text-align: center;
     width: 150px;
     height: 50vh;
-    margin-left: -10px;
+    margin-left: 1600px;
     margin-right: 0px;
     overflow: hidden;
     justify-content: space-evenly;
+    
 }
 .container {
     display: grid;
