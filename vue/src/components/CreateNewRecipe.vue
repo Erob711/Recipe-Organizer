@@ -10,8 +10,8 @@
             <div class = "ingredients" v-for="(input, index) in ingredients" :key="`ingredientInput-${index}`">
                 <input type = "text" class = "item" v-model="input.ingredient" placeholder="Ingredient">
                 <div class = "add-and-remove-buttons">
-                    <a @click.prevent="addIngredient(ingredients)"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></a>
-                    <a @click.prevent="removeIngredient(index, ingredients)"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></a>
+                    <a @click.prevent="addIngredient(ingredients)" class="plus-button"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></a>
+                    <a @click.prevent="removeIngredient(index, ingredients)" class="minus-button"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></a>
                 </div>
             </div>
             
@@ -183,6 +183,20 @@ h2 {
     margin-left: 6%;
 }
 .add-and-remove-buttons {
-    
+    display: flex;
+    flex-direction: column;
 }
+a:hover {
+    cursor: pointer;
+}
+.plus-button {
+    width: 5px;
+    height: 5px;
+    margin-bottom: 5px;
+}
+.minus-button {
+    width: 5px;
+    height: 5px;
+}
+
 </style>
