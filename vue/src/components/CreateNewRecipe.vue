@@ -18,7 +18,7 @@
             <input type = "text" class = "item" placeholder="Instructions" v-model="instructions.instruction">
             <input type = "text" class = "item" placeholder="Photo URL" v-model="photo.photoUrl">
             <input type = "text" class = "item" placeholder="Additional Notes" v-model="note.note">
-            <button type="button" v-on:click="createRecipe">Submit New Recipe</button>
+            <button type="button" class="submit-button" v-on:click="createRecipe">Submit New Recipe</button>
 
             <!-- TEST -->
             <!-- TEST -->
@@ -161,6 +161,7 @@ export default {
 .item {
     flex: 1 1 0px;
     width: 10;
+    margin-bottom: 10px;
 }
 h2 {
     padding-top: 10%;
@@ -175,6 +176,10 @@ h2 {
 } */
 .ingredients:first-child {
     margin-right: 20px;
+}
+
+.submit-button {
+    margin-left: 6%;
 }
 .add-and-remove-buttons {
     
