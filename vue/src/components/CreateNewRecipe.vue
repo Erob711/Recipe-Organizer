@@ -3,7 +3,7 @@
         <body>
         
         <!-- TODO: make Create new Recipe form  -->
-    <h2>Create New Recipe</h2>
+    <h1>Create New Recipe</h1>
     <div class="container">
         <form class ="recipe-form" ref="recipeForm" @submit="createRecipe">
             <input type = "text" class = "item" v-model="recipe.title" placeholder="Title"/>
@@ -163,7 +163,7 @@ export default {
     width: 10;
     margin-bottom: 15px;
 }
-h2 {
+h1 {
     margin-right: 22px;
     padding-top: 10%;
     height: 80%;
